@@ -38,8 +38,10 @@ systemctl daemon-reload && systemctl restart docker && systemctl enable  docker
 rpm -qa|grep dao||curl -sSL https://get.daocloud.io/daomonit/install.sh | sh -s 7a6d83cbe808b45fbcc77d451d82f
 
 # install docker-compose 
-whereis docker-compose ||curl -o /usr/bin/docker-compose  https://mirrors.aliyun.com/docker-toolbox/linux/compose/1.8.0/docker-compose-Linux-x86_64
+which docker-compose ||curl -o /usr/bin/docker-compose  https://mirrors.aliyun.com/docker-toolbox/linux/compose/1.8.0/docker-compose-Linux-x86_64
 chmod +x  /usr/bin/docker-compose
 
 # install golang
 rpm -aq |grep golang || yum install -y golang  
+
+docker-compose up -d 
